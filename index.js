@@ -62,10 +62,13 @@ server.post('/api/users', (req, res) => {
       db.insert(user)
          .then(user => {
             // respond with 201 Created and send the new user object
-            res.status(201).json({
-               success: true,
-               user
-            })
+            db.findById(user.id)
+               .then(user => {
+                  res.status(201).json({
+                     success: true,
+                     user
+                  })
+               })
          })
          .catch(err => {
             res.status(500).json({
@@ -92,10 +95,13 @@ server.put('/api/users/:id', (req, res) => {
       db.update(id, user)
          .then(user => {
             if (user) {
-               res.status(200).json({
-                  success: true,
-                  user,
-               });
+               db.findById(id)
+               .then(user => {
+                  res.status(200).json({
+                     success: true,
+                     user
+                  })
+               })
             } else {
                // else return a 404 and an error message
                res.status(404).json({
@@ -126,10 +132,13 @@ server.delete('/api/users/:id', (req, res) => {
    db.remove(id)
       .then(user => {
          if (user) {
-            res.status(200).json({
-               success: true,
-               user,
-            });
+            db.find()
+               .then(users => {
+                  res.status(200).json({
+                     success: true,
+                     users,
+                  });
+            })
          } else {
             // else return a 404 and an error message
             res.status(404).json({
