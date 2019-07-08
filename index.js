@@ -54,6 +54,36 @@ server.get('/api/users/:id', (req, res) => {
       });
 });
 
+// post a new user
+server.post('/api/users', (req, res) => {
+   const user = req.body;
+   if (user.name && user.bio) {
+      // if all required fields are presented, proceed
+      db.insert(user)
+         .then(user => {
+            // respond with 201 Created and send the new user object
+            res.status(201).json({
+               success: true,
+               user
+            })
+         })
+         .catch(err => {
+            res.status(500).json({
+               // if error, responds with 500 and send an error message
+               error: 'There was an error while saving the user to the database',
+               err,
+            });
+         });
+   } else {
+      // if missing any required field, throw a bad request error
+      res.status(400).json({
+         success: false,
+         errorMessage: 'Please provide name and bio for the user'
+      })
+   }
+
+})
+
 server.listen(5000, () => {
    console.log('\n*** Awesome!! Server Running on http://localhost:5000 ***\n');
 });
