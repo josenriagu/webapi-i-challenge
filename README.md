@@ -30,9 +30,9 @@ Now that we have a way to add, update, remove and retrieve data from the provide
 
 ### Start the API and Implement Requirements
 
-- To start the server, type `yarn server` or `npm run server` from the root folder (where the _package.json_ file is). The server is configured to restart automatically as you make changes.
-- Add the code necessary to implement the API requirements.
-- **Test the API using _Postman_ as you work through the exercises.**
+[x] To start the server, type `yarn server` or `npm run server` from the root folder (where the _package.json_ file is). The server is configured to restart automatically as you make changes.
+[x] Add the code necessary to implement the API requirements.
+[x] **Test the API using _Postman_ as you work through the exercises.**
 
 ### User Schema
 
@@ -63,78 +63,78 @@ Inside `index.js` add the code necessary to implement the following _endpoints_:
 
 When the client makes a `POST` request to `/api/users`:
 
-- If the request body is missing the `name` or `bio` property:
+[x] If the request body is missing the `name` or `bio` property:
 
-  - cancel the request.
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
+  [x] cancel the request.
+  [x] respond with HTTP status code `400` (Bad Request).
+  [x] return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
 
-- If the information about the _user_ is valid:
+[x] If the information about the _user_ is valid:
 
-  - save the new _user_ the the database.
-  - return HTTP status code `201` (Created).
-  - return the newly created _user document_.
+  [x] save the new _user_ the the database.
+  [x] return HTTP status code `201` (Created).
+  [x] return the newly created _user document_.
 
-- If there's an error while saving the _user_:
-  - cancel the request.
-  - respond with HTTP status code `500` (Server Error).
-  - return the following JSON object: `{ error: "There was an error while saving the user to the database" }`.
+[x] If there's an error while saving the _user_:
+  [x] cancel the request.
+  [x] respond with HTTP status code `500` (Server Error).
+  [x] return the following JSON object: `{ error: "There was an error while saving the user to the database" }`.
 
 When the client makes a `GET` request to `/api/users`:
 
-- If there's an error in retrieving the _users_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The users information could not be retrieved." }`.
+[x] If there's an error in retrieving the _users_ from the database:
+  [x] cancel the request.
+  [x] respond with HTTP status code `500`.
+  [x] return the following JSON object: `{ error: "The users information could not be retrieved." }`.
 
 When the client makes a `GET` request to `/api/users/:id`:
 
-- If the _user_ with the specified `id` is not found:
+[x] If the _user_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
+  [x] return HTTP status code `404` (Not Found).
+  [x] return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
 
-- If there's an error in retrieving the _user_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The user information could not be retrieved." }`.
+[x] If there's an error in retrieving the _user_ from the database:
+  [x] cancel the request.
+  [x] respond with HTTP status code `500`.
+  [x] return the following JSON object: `{ error: "The user information could not be retrieved." }`.
 
 When the client makes a `DELETE` request to `/api/users/:id`:
 
-- If the _user_ with the specified `id` is not found:
+[x] If the _user_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
+  [x] return HTTP status code `404` (Not Found).
+  [x] return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
 
-- If there's an error in removing the _user_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The user could not be removed" }`.
+[x] If there's an error in removing the _user_ from the database:
+  [x] cancel the request.
+  [x] respond with HTTP status code `500`.
+  [x] return the following JSON object: `{ error: "The user could not be removed" }`.
 
 When the client makes a `PUT` request to `/api/users/:id`:
 
-- If the _user_ with the specified `id` is not found:
+[x] If the _user_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
+  [x] return HTTP status code `404` (Not Found).
+  [x] return the following JSON object: `{ message: "The user with the specified ID does not exist." }`.
 
-- If the request body is missing the `name` or `bio` property:
+[x] If the request body is missing the `name` or `bio` property:
 
-  - cancel the request.
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
+  [x] cancel the request.
+  [x] respond with HTTP status code `400` (Bad Request).
+  [x] return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
 
-- If there's an error when updating the _user_:
+[x] If there's an error when updating the _user_:
 
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The user information could not be modified." }`.
+  [x] cancel the request.
+  [x] respond with HTTP status code `500`.
+  [x] return the following JSON object: `{ error: "The user information could not be modified." }`.
 
-- If the user is found and the new information is valid:
+[x] If the user is found and the new information is valid:
 
-  - update the user document in the database using the new information sent in the `reques body`.
-  - return HTTP status code `200` (OK).
-  - return the newly updated _user document_.
+  [x] update the user document in the database using the new information sent in the `reques body`.
+  [x] return HTTP status code `200` (OK).
+  [x] return the newly updated _user document_.
 
 ## Stretch Problems
 
